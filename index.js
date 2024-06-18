@@ -15,7 +15,7 @@ export default function vitePluginAliOss (options) {
   }
 
   return {
-    name: 'vite-plugin-ali-oss',
+    name: 'vite-plugin-ali-oss-kkc',
     enforce: 'post',
     apply: 'build',
     configResolved (config) {
@@ -28,7 +28,7 @@ export default function vitePluginAliOss (options) {
       order: 'post',
       async handler () {
         if (!/^http/i.test(baseConfig)) {
-          throw Error('[vite-plugin-ali-oss] base must be a url')
+          throw Error('[vite-plugin-ali-oss-kkc] base must be a url')
         }
 
         const outDirPath = normalizePath(path.resolve(normalizePath(options.from || buildConfig.outDir)))

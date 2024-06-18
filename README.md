@@ -1,4 +1,4 @@
-vite-plugin-ali-oss
+vite-plugin-ali-oss-kkc
 =======
 ![license](https://img.shields.io/npm/l/vite-plugin-ali-oss)
 ![downloads](https://img.shields.io/npm/dt/vite-plugin-ali-oss)
