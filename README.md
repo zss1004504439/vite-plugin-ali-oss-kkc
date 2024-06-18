@@ -45,6 +45,8 @@ import vue from '@vitejs/plugin-vue'
 import vitePluginAliOss from 'vite-plugin-ali-oss'
 
 const options = {
+  from: '打包输出目录'
+  ossBase: 'https://oss.com/kkc-static/'
   region: '<Your Region>'
   accessKeyId: '<Your Access Key ID>',
   accessKeySecret: '<Your Access Key Secret>',
@@ -65,7 +67,7 @@ To upload to an oss-specific directory, simply set the base directly to:
 base: prod ? 'https://foo.com/yourpath/etc/' : '/'
 ```
 
-3. Build Production
+1. Build Production
 
 ```
 pnpm run build

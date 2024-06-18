@@ -19,7 +19,7 @@ export default function vitePluginAliOss (options) {
     enforce: 'post',
     apply: 'build',
     configResolved (config) {
-      baseConfig = config.base
+      baseConfig = options.ossBase || config.base
       buildConfig = config.build
     },
 
@@ -31,7 +31,7 @@ export default function vitePluginAliOss (options) {
           throw Error('[vite-plugin-ali-oss] base must be a url')
         }
 
-        const outDirPath = normalizePath(path.resolve(normalizePath(buildConfig.outDir)))
+        const outDirPath = normalizePath(path.resolve(normalizePath(options.from || buildConfig.outDir)))
 
         const {pathname: ossBasePath, origin: ossOrigin} = new URL(baseConfig)
 
@@ -77,7 +77,7 @@ export default function vitePluginAliOss (options) {
 
           const completePath = ossOrigin + ossFilePath // eg: 'https://foo.com/base/assets/vendor.bfb92b77.js'
 
-          const output = `${buildConfig.outDir + filePath} => ${color.green(completePath)}`
+          const output = `${ options.from || buildConfig.outDir + filePath} => ${color.green(completePath)}`
 
           if (options.test) {
             console.log(`test upload path: ${output}`)
